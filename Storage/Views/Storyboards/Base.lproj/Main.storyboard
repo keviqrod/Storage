@@ -31,7 +31,7 @@
         <scene sceneID="Ggx-YA-JYP">
             <objects>
                 <navigationController id="9UF-yf-Xg6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="cube.box.fill" catalog="system" id="9gy-LV-54B"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="shippingbox.fill" catalog="system" id="9gy-LV-54B"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mQA-93-grK">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -95,8 +95,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cube.box.fill" catalog="system" width="128" height="124"/>
         <image name="message.fill" catalog="system" width="128" height="113"/>
+        <image name="shippingbox.fill" catalog="system" width="128" height="124"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

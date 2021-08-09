@@ -16,16 +16,37 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-76" translatesAutoresizingMaskIntoConstraints="NO" id="d73-Xn-pyo">
+                                <rect key="frame" x="107" y="348" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Hdx-hp-TPW"/>
+                                    <constraint firstAttribute="height" constant="200" id="eyt-aX-PuI"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Storage for College" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIM-UL-KFT">
+                                <rect key="frame" x="115.5" y="560" width="183" height="26.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="d73-Xn-pyo" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="AL5-SI-M4z"/>
+                            <constraint firstItem="d73-Xn-pyo" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Idz-fz-Wo3"/>
+                            <constraint firstItem="jIM-UL-KFT" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="XVc-Eh-QSL"/>
+                            <constraint firstItem="jIM-UL-KFT" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="125" id="uJo-qE-sBO"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
     <resources>
+        <image name="icon-76" width="76" height="76"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
