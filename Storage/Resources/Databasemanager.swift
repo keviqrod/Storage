@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import FirebaseDatabase
 
 public class DatabaseManager {
+    static let shared = DatabaseManager()
     
-    // backend stuff here, might user Firebase
+    // MARK: -- Public
+    
 }

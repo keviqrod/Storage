@@ -7,6 +7,9 @@
 
 import UIKit
 import SafariServices
+import Foundation
+import FirebaseAuth
+import Dispatch
 
 class LoginViewController: UIViewController {
     
@@ -59,12 +62,19 @@ class LoginViewController: UIViewController {
     }()
     
     
-    private let createAccountButton: UIButton = {
+    private let createAccountButtonUser: UIButton = {
         let button = UIButton()
         button.setTitleColor(.label, for: .normal)
-        button.setTitle("New Student? Create an account!", for: .normal)
+        button.setTitle("Storing items? Create account here!", for: .normal)
         return button
         
+    }()
+    
+    private let createAccountButtonHost: UIButton = {
+        let button = UIButton()
+        button.setTitleColor(.label, for: .normal)
+        button.setTitle("New host? Sign up here!", for: .normal)
+        return button
     }()
     
     private let headerView: UIView = {
@@ -81,7 +91,9 @@ class LoginViewController: UIViewController {
         
         loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
         
-        createAccountButton.addTarget(self, action: #selector(didTapCreateAccountButton), for: .touchUpInside)
+        createAccountButtonUser.addTarget(self, action: #selector(didTapCreateAccountButtonUser), for: .touchUpInside)
+        
+        createAccountButtonHost.addTarget(self, action: #selector(didTapCreateAccountButtonHost), for: .touchUpInside)
         
         usernameEmailField.delegate = self
         passwordField.delegate = self
@@ -109,9 +121,11 @@ class LoginViewController: UIViewController {
         loginButton.frame = CGRect(x: 25, y: passwordField.bottom + 10, width: view.width - 50,
                                           height: 52.0)
         
-        createAccountButton.frame = CGRect(x: 25, y: loginButton.bottom + 10, width: view.width - 50,
+        createAccountButtonUser.frame = CGRect(x: 25, y: loginButton.bottom + 10, width: view.width - 50,
                                           height: 52.0)
         
+        createAccountButtonHost.frame = CGRect(x: 25, y: createAccountButtonUser.bottom + 4, width: view.width - 50,
+                                          height: 52.0)
         
         configureHeaderView()
     }
@@ -137,7 +151,8 @@ class LoginViewController: UIViewController {
         view.addSubview(usernameEmailField)
         view.addSubview(passwordField)
         view.addSubview(loginButton)
-        view.addSubview(createAccountButton)
+        view.addSubview(createAccountButtonUser)
+        view.addSubview(createAccountButtonHost)
         view.addSubview(headerView)
     }
     
@@ -151,27 +166,61 @@ class LoginViewController: UIViewController {
                 return
         }
         
-        // log in (where we can add actual log in feature)
+        // log in
+        
+        var email: String?
+        
+        if usernameEmail.contains("@"), usernameEmail.contains(".edu"){
+            email = usernameEmail
+           
+        }
+        else if usernameEmail.contains("@"), usernameEmail.contains(".edu") {
+            
+            email = usernameEmail
+          
+        }
+        
+        else {
+            
+        }
+        
+    
+        authoManager.shared.loginNewUser(email: email, password: password) {
+            success in
+            DispatchQueue.main.async {
+                if success {
+                    // user logged in
+                    self.dismiss(animated: true, completion: nil)
+                }
+                else {
+                    let alert = UIAlertController(title: "Log In Error", message: "We were not able to log you in :(", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+                    self.present(alert, animated: true)
+                    
+                }
+                
+            }
+        }
         
     }
-    @objc private func didTapCreateAccountButton() {
-        let vc = RegistrationViewController()
+    @objc public func didTapCreateAccountButtonUser() {
+        let vc = RegistrationViewControllerUser()
         vc.title = "Create a new account"
+        vc.modalPresentationStyle = .fullScreen
+        present(UINavigationController(rootViewController: vc), animated: true)
         
+    }
+    
+    @objc public func didTapCreateAccountButtonHost() {
+        
+        let vc = RegistrationViewControllerHost()
+        vc.title = "Create a new account"
+        vc.modalPresentationStyle = .fullScreen
         present(UINavigationController(rootViewController: vc), animated: true)
         
     }
   
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     
 }
