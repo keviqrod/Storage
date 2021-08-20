@@ -61,19 +61,10 @@ class LoginViewController: UIViewController {
         return button
     }()
     
-    
-    private let createAccountButtonUser: UIButton = {
+    private let createAccountButton: UIButton = {
         let button = UIButton()
         button.setTitleColor(.label, for: .normal)
-        button.setTitle("Storing items? Create account here!", for: .normal)
-        return button
-        
-    }()
-    
-    private let createAccountButtonHost: UIButton = {
-        let button = UIButton()
-        button.setTitleColor(.label, for: .normal)
-        button.setTitle("New host? Sign up here!", for: .normal)
+        button.setTitle("Create account here!", for: .normal)
         return button
     }()
     
@@ -88,19 +79,12 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
-        
-        createAccountButtonUser.addTarget(self, action: #selector(didTapCreateAccountButtonUser), for: .touchUpInside)
-        
-        createAccountButtonHost.addTarget(self, action: #selector(didTapCreateAccountButtonHost), for: .touchUpInside)
-        
+        createAccountButton.addTarget(self, action: #selector(didTapCreateAccountButton), for: .touchUpInside)
         usernameEmailField.delegate = self
         passwordField.delegate = self
         addSubviews()
         view.backgroundColor = .systemBackground
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidLayoutSubviews() {
@@ -121,12 +105,8 @@ class LoginViewController: UIViewController {
         loginButton.frame = CGRect(x: 25, y: passwordField.bottom + 10, width: view.width - 50,
                                           height: 52.0)
         
-        createAccountButtonUser.frame = CGRect(x: 25, y: loginButton.bottom + 10, width: view.width - 50,
+        createAccountButton.frame = CGRect(x: 25, y: loginButton.bottom + 10, width: view.width - 50,
                                           height: 52.0)
-        
-        createAccountButtonHost.frame = CGRect(x: 25, y: createAccountButtonUser.bottom + 4, width: view.width - 50,
-                                          height: 52.0)
-        
         configureHeaderView()
     }
     
@@ -134,7 +114,6 @@ class LoginViewController: UIViewController {
         guard headerView.subviews.count == 1 else {
             return
         }
-        
         guard let backgroundView = headerView.subviews.first else {
             return
         }
@@ -151,40 +130,30 @@ class LoginViewController: UIViewController {
         view.addSubview(usernameEmailField)
         view.addSubview(passwordField)
         view.addSubview(loginButton)
-        view.addSubview(createAccountButtonUser)
-        view.addSubview(createAccountButtonHost)
+        view.addSubview(createAccountButton)
         view.addSubview(headerView)
     }
     
     @objc private func didTapLoginButton() {
         passwordField.resignFirstResponder()
         usernameEmailField.resignFirstResponder()
-        
         // Email + Password check if valid
         guard let usernameEmail = usernameEmailField.text, !usernameEmail.isEmpty,
               let password = passwordField.text, !password.isEmpty, password.count >= 8 else {
                 return
         }
-        
         // log in
-        
         var email: String?
-        
         if usernameEmail.contains("@"), usernameEmail.contains(".edu"){
             email = usernameEmail
-           
         }
         else if usernameEmail.contains("@"), usernameEmail.contains(".edu") {
-            
             email = usernameEmail
-          
         }
-        
         else {
             
         }
-        
-    
+
         authoManager.shared.loginNewUser(email: email, password: password) {
             success in
             DispatchQueue.main.async {
@@ -196,32 +165,16 @@ class LoginViewController: UIViewController {
                     let alert = UIAlertController(title: "Log In Error", message: "We were not able to log you in :(", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
                     self.present(alert, animated: true)
-                    
                 }
-                
             }
         }
-        
     }
-    @objc public func didTapCreateAccountButtonUser() {
-        let vc = RegistrationViewControllerUser()
+    @objc public func didTapCreateAccountButton() {
+        let vc = RegistrationViewController()
         vc.title = "Create a new account"
         vc.modalPresentationStyle = .fullScreen
         present(UINavigationController(rootViewController: vc), animated: true)
-        
     }
-    
-    @objc public func didTapCreateAccountButtonHost() {
-        
-        let vc = RegistrationViewControllerHost()
-        vc.title = "Create a new account"
-        vc.modalPresentationStyle = .fullScreen
-        present(UINavigationController(rootViewController: vc), animated: true)
-        
-    }
-  
-
-
     
 }
 

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A03488A26CEA424004358D8 /* StorageManager .swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A03488926CEA424004358D8 /* StorageManager .swift */; };
 		0A54BE0826CE29730034556B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A54BE0726CE29730034556B /* GoogleService-Info.plist */; };
-		0A5C571326C98B1C00826126 /* RegistrationViewControllerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C571226C98B1C00826126 /* RegistrationViewControllerHost.swift */; };
+		2F77C49F26D00980002517FA /* ToolbarPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F77C49E26D00980002517FA /* ToolbarPickerViewDelegate.swift */; };
 		3F714CD726B9B2C90006A475 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F714CD626B9B2C90006A475 /* AppDelegate.swift */; };
 		3F714CD926B9B2C90006A475 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F714CD826B9B2C90006A475 /* SceneDelegate.swift */; };
 		3F714CDB26B9B2C90006A475 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F714CDA26B9B2C90006A475 /* HomeViewController.swift */; };
@@ -17,7 +17,7 @@
 		3F714CE026B9B2CA0006A475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F714CDF26B9B2CA0006A475 /* Assets.xcassets */; };
 		3F714CE326B9B2CA0006A475 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F714CE126B9B2CA0006A475 /* LaunchScreen.storyboard */; };
 		3F714CF526B9B7680006A475 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F714CF426B9B7680006A475 /* LoginViewController.swift */; };
-		3F714CF826B9B7830006A475 /* RegistrationViewControllerUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F714CF726B9B7830006A475 /* RegistrationViewControllerUser.swift */; };
+		3F714CF826B9B7830006A475 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F714CF726B9B7830006A475 /* RegistrationViewController.swift */; };
 		3F714CFB26B9BA710006A475 /* MessagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F714CFA26B9BA710006A475 /* MessagingViewController.swift */; };
 		3F714CFE26BB8BEE0006A475 /* Databasemanager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F714CFD26BB8BEE0006A475 /* Databasemanager.swift */; };
 		3F714D0126BB914B0006A475 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F714D0026BB914B0006A475 /* Extensions.swift */; };
@@ -28,7 +28,7 @@
 /* Begin PBXFileReference section */
 		0A03488926CEA424004358D8 /* StorageManager .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StorageManager .swift"; sourceTree = "<group>"; };
 		0A54BE0726CE29730034556B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		0A5C571226C98B1C00826126 /* RegistrationViewControllerHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewControllerHost.swift; sourceTree = "<group>"; };
+		2F77C49E26D00980002517FA /* ToolbarPickerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarPickerViewDelegate.swift; sourceTree = "<group>"; };
 		3F714CD326B9B2C90006A475 /* Storage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Storage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F714CD626B9B2C90006A475 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F714CD826B9B2C90006A475 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,7 +38,7 @@
 		3F714CE226B9B2CA0006A475 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F714CE426B9B2CA0006A475 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F714CF426B9B7680006A475 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		3F714CF726B9B7830006A475 /* RegistrationViewControllerUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewControllerUser.swift; sourceTree = "<group>"; };
+		3F714CF726B9B7830006A475 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		3F714CFA26B9BA710006A475 /* MessagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingViewController.swift; sourceTree = "<group>"; };
 		3F714CFD26BB8BEE0006A475 /* Databasemanager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Databasemanager.swift; sourceTree = "<group>"; };
 		3F714D0026BB914B0006A475 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -100,6 +100,7 @@
 				0A03488926CEA424004358D8 /* StorageManager .swift */,
 				3F714CFD26BB8BEE0006A475 /* Databasemanager.swift */,
 				3F714D0026BB914B0006A475 /* Extensions.swift */,
+				2F77C49E26D00980002517FA /* ToolbarPickerViewDelegate.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -125,8 +126,7 @@
 			children = (
 				3F714CDA26B9B2C90006A475 /* HomeViewController.swift */,
 				3F714CF426B9B7680006A475 /* LoginViewController.swift */,
-				3F714CF726B9B7830006A475 /* RegistrationViewControllerUser.swift */,
-				0A5C571226C98B1C00826126 /* RegistrationViewControllerHost.swift */,
+				3F714CF726B9B7830006A475 /* RegistrationViewController.swift */,
 				3F714CFA26B9BA710006A475 /* MessagingViewController.swift */,
 			);
 			path = Controllers;
@@ -281,8 +281,8 @@
 				3F714D0126BB914B0006A475 /* Extensions.swift in Sources */,
 				3F714CFE26BB8BEE0006A475 /* Databasemanager.swift in Sources */,
 				3F714CD926B9B2C90006A475 /* SceneDelegate.swift in Sources */,
-				0A5C571326C98B1C00826126 /* RegistrationViewControllerHost.swift in Sources */,
-				3F714CF826B9B7830006A475 /* RegistrationViewControllerUser.swift in Sources */,
+				2F77C49F26D00980002517FA /* ToolbarPickerViewDelegate.swift in Sources */,
+				3F714CF826B9B7830006A475 /* RegistrationViewController.swift in Sources */,
 				3F714CFB26B9BA710006A475 /* MessagingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,12 +13,10 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         handleNotAuthenticated()
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        // Call authentification function here
     }
 
     private func handleNotAuthenticated() {
@@ -29,7 +27,6 @@ class HomeViewController: UIViewController {
             loginVC.modalPresentationStyle = .fullScreen
             present(loginVC, animated: false)
             //   else load normal screen + request location (later!)
-            
         }
     }
 
