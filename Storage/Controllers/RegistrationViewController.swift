@@ -6,8 +6,22 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class RegistrationViewController: UIViewController {
+    
+    let database = Firestore.firestore()
+    
+    func writeUserData(name: String, dob: Date, email: String, password: String) {
+        let docRef = database.document("User")
+        docRef.setData(["name": name, "dob": dob, "email": email, "password": password])
+    }
+    
+    func writeHostData(name: String, dob: Date, email: String, password: String) {
+        let docRef = database.document("Host")
+        docRef.setData(["name": name, "dob": dob, "email": email, "password": password])
+    }
+ 
     
     struct Constants {
         static let cornerRadius: CGFloat = 8.0
@@ -197,6 +211,11 @@ class RegistrationViewController: UIViewController {
               let confirm = confirmField.text, !confirm.isEmpty, confirm == password else {
                 return
         }
+        if choice == "Host" {
+            writeHostData(name: name, dob: dob, email: email, password: password)
+        } else if choice == "User" {
+            writeUserData(name: name, dob: dob, email: email, password: password)
+        }
     }
 }
 
@@ -241,7 +260,6 @@ extension RegistrationViewController: ToolbarPickerViewDelegate {
         self.pickerField.text = self.choices[row]
         self.pickerField.resignFirstResponder()
     }
-
     func didTapCancel() {
         self.pickerField.text = nil
         self.pickerField.resignFirstResponder()

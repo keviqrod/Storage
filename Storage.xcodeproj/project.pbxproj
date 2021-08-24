@@ -10,6 +10,8 @@
 		0A03488A26CEA424004358D8 /* StorageManager .swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A03488926CEA424004358D8 /* StorageManager .swift */; };
 		0A54BE0826CE29730034556B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A54BE0726CE29730034556B /* GoogleService-Info.plist */; };
 		2F77C49F26D00980002517FA /* ToolbarPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F77C49E26D00980002517FA /* ToolbarPickerViewDelegate.swift */; };
+		2FD49AB126D46ECD004E692E /* UserQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD49AB026D46ECD004E692E /* UserQuestionsViewController.swift */; };
+		2FD49AB326D470DC004E692E /* HostQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD49AB226D470DC004E692E /* HostQuestionsViewController.swift */; };
 		3F714CD726B9B2C90006A475 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F714CD626B9B2C90006A475 /* AppDelegate.swift */; };
 		3F714CD926B9B2C90006A475 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F714CD826B9B2C90006A475 /* SceneDelegate.swift */; };
 		3F714CDB26B9B2C90006A475 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F714CDA26B9B2C90006A475 /* HomeViewController.swift */; };
@@ -29,6 +31,8 @@
 		0A03488926CEA424004358D8 /* StorageManager .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StorageManager .swift"; sourceTree = "<group>"; };
 		0A54BE0726CE29730034556B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2F77C49E26D00980002517FA /* ToolbarPickerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarPickerViewDelegate.swift; sourceTree = "<group>"; };
+		2FD49AB026D46ECD004E692E /* UserQuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserQuestionsViewController.swift; sourceTree = "<group>"; };
+		2FD49AB226D470DC004E692E /* HostQuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostQuestionsViewController.swift; sourceTree = "<group>"; };
 		3F714CD326B9B2C90006A475 /* Storage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Storage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F714CD626B9B2C90006A475 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F714CD826B9B2C90006A475 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +64,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F77C4A026D00CE4002517FA /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				3F714CD826B9B2C90006A475 /* SceneDelegate.swift */,
+				3F714CD626B9B2C90006A475 /* AppDelegate.swift */,
+				2F77C49E26D00980002517FA /* ToolbarPickerViewDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		2F77C4A126D00CF6002517FA /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				3F714D0326C1A60F0006A475 /* authoManager.swift */,
+				0A03488926CEA424004358D8 /* StorageManager .swift */,
+				3F714CFD26BB8BEE0006A475 /* Databasemanager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		3F714CCA26B9B2C90006A475 = {
 			isa = PBXGroup;
 			children = (
@@ -85,7 +109,6 @@
 				3F714CF026B9B32A0006A475 /* Views */,
 				3F714CEE26B9B3100006A475 /* Models */,
 				3F714CEC26B9B2E70006A475 /* Resources */,
-				3F714CE426B9B2CA0006A475 /* Info.plist */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -93,14 +116,11 @@
 		3F714CEC26B9B2E70006A475 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3F714CD826B9B2C90006A475 /* SceneDelegate.swift */,
-				3F714CD626B9B2C90006A475 /* AppDelegate.swift */,
-				0A54BE0726CE29730034556B /* GoogleService-Info.plist */,
-				3F714D0326C1A60F0006A475 /* authoManager.swift */,
-				0A03488926CEA424004358D8 /* StorageManager .swift */,
-				3F714CFD26BB8BEE0006A475 /* Databasemanager.swift */,
+				3F714CE426B9B2CA0006A475 /* Info.plist */,
 				3F714D0026BB914B0006A475 /* Extensions.swift */,
-				2F77C49E26D00980002517FA /* ToolbarPickerViewDelegate.swift */,
+				2F77C4A126D00CF6002517FA /* Managers */,
+				2F77C4A026D00CE4002517FA /* Delegates */,
+				0A54BE0726CE29730034556B /* GoogleService-Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -128,6 +148,8 @@
 				3F714CF426B9B7680006A475 /* LoginViewController.swift */,
 				3F714CF726B9B7830006A475 /* RegistrationViewController.swift */,
 				3F714CFA26B9BA710006A475 /* MessagingViewController.swift */,
+				2FD49AB026D46ECD004E692E /* UserQuestionsViewController.swift */,
+				2FD49AB226D470DC004E692E /* HostQuestionsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -280,9 +302,11 @@
 				0A03488A26CEA424004358D8 /* StorageManager .swift in Sources */,
 				3F714D0126BB914B0006A475 /* Extensions.swift in Sources */,
 				3F714CFE26BB8BEE0006A475 /* Databasemanager.swift in Sources */,
+				2FD49AB126D46ECD004E692E /* UserQuestionsViewController.swift in Sources */,
 				3F714CD926B9B2C90006A475 /* SceneDelegate.swift in Sources */,
 				2F77C49F26D00980002517FA /* ToolbarPickerViewDelegate.swift in Sources */,
 				3F714CF826B9B7830006A475 /* RegistrationViewController.swift in Sources */,
+				2FD49AB326D470DC004E692E /* HostQuestionsViewController.swift in Sources */,
 				3F714CFB26B9BA710006A475 /* MessagingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
