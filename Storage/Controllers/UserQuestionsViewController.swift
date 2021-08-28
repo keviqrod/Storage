@@ -34,3 +34,9 @@ class UserQuestionsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
 }
+
+/*question function?*/
+
+/* request struct: collects data from user
+ send to server to match with host
+ */

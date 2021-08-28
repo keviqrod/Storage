@@ -8,7 +8,7 @@
 import UIKit
 import SafariServices
 import Foundation
-// import FirebaseAuth
+import FirebaseAuth
 import Dispatch
 
 class LoginViewController: UIViewController {

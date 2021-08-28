@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseFirestore
 
-class RegistrationViewController: UIViewController {
+class BasicRegistrationViewController: UIViewController {
     
     let database = Firestore.firestore()
     
@@ -21,52 +21,10 @@ class RegistrationViewController: UIViewController {
         let docRef = database.document("Host")
         docRef.setData(["name": name, "dob": dob, "email": email, "password": password])
     }
- 
     
-    struct Constants {
-        static let cornerRadius: CGFloat = 8.0
-    }
     // need to add feature here that rejects emails if they are not valid and/or affiliated with university
     // also in general, could use something that ensures "return" take susers to each subsequent bar
-
-    var currentImage: UIImage!
-    
-    // somehow get system to save this photo for use later + also display it while signing up
-//    func imagePickerController(_ picker: UIImage, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-//
-//        guard let image = info[.editedImage] as? UIImage else { return }
-//
-//        dismiss(animated: true)
-//
-//        currentImage = image
-//    }
-//
-//    @objc func importPicture() {
-//        let picker = UIImagePickerController()
-//        picker.allowsEditing = true
-//        picker.delegate = self
-//        present(picker, animated: true)
-//    }
-    
-    let chooseHostOrUserPicker: ToolbarPickerView = ToolbarPickerView()
-    let choices = ["Host", "User"]
-    
-    private let pickerField: UITextField = {
-        let field = UITextField()
-        field.placeholder = "Account Type"
-        field.returnKeyType = .next
-        field.leftViewMode = .always
-        field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
-        field.autocapitalizationType = .none
-        field.autocorrectionType = .no
-        field.layer.masksToBounds = true
-        field.layer.cornerRadius = Constants.cornerRadius
-        field.backgroundColor = .secondarySystemBackground
-        field.layer.borderWidth = 1.0
-        field.layer.borderColor = UIColor.secondaryLabel.cgColor
-        return field
-    }()
-    
+   
     private let nameField: UITextField = {
         let field = UITextField()
         field.placeholder = "First and Last Names"
@@ -162,31 +120,34 @@ class RegistrationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerButton.addTarget(self, action: #selector(didTapRegister), for: .touchUpInside)
-        
-        chooseHostOrUserPicker.dataSource = self
-        chooseHostOrUserPicker.delegate = self
-        chooseHostOrUserPicker.toolbarDelegate = self
-        pickerField.inputView = chooseHostOrUserPicker
-        pickerField.inputAccessoryView = self.chooseHostOrUserPicker.toolbar
+        setDelegates()
+        addSubviews()
+        view.backgroundColor = .systemBackground
+    }
+    
+    private func setDelegates() {
         nameField.delegate = self
         dobField.delegate = self
         emailField.delegate = self
         passwordField.delegate = self
         confirmField.delegate = self
-        
-        view.addSubview(pickerField)
+    }
+    
+    private func addSubviews() {
         view.addSubview(nameField)
         view.addSubview(dobField)
         view.addSubview(emailField)
         view.addSubview(passwordField)
         view.addSubview(confirmField)
         view.addSubview(registerButton)
-        view.backgroundColor = .systemBackground
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        pickerField.frame = CGRect(x: 20, y: view.safeAreaInsets.top + 10, width: view.width - 40, height: 52)
+        setLayoutFrames()
+    }
+    
+    private func setLayoutFrames() {
         nameField.frame = CGRect(x: 20, y: pickerField.bottom + 10, width: view.width - 40, height: 52)
         dobField.frame = CGRect(x: 20, y: nameField.bottom + 10, width: view.width - 40, height: 52)
         emailField.frame = CGRect(x: 20, y: dobField.bottom + 10, width: view.width - 40, height: 52)
@@ -196,35 +157,25 @@ class RegistrationViewController: UIViewController {
     }
     
     @objc private func didTapRegister() {
-        pickerField.resignFirstResponder()
         nameField.resignFirstResponder()
         dobField.resignFirstResponder()
         emailField.resignFirstResponder()
         passwordField.resignFirstResponder()
         confirmField.resignFirstResponder()
         
-        guard let choice = pickerField.text, !choice.isEmpty,
-              let name = nameField.text, !name.isEmpty,
+        guard let name = nameField.text, !name.isEmpty,
               let dob = dobField.text, !dob.isEmpty,
               let email = emailField.text, !email.isEmpty,
               let password = passwordField.text, !password.isEmpty, password.count >= 8,
               let confirm = confirmField.text, !confirm.isEmpty, confirm == password else {
                 return
         }
-        if choice == "Host" {
-            writeHostData(name: name, dob: dob, email: email, password: password)
-        } else if choice == "User" {
-            writeUserData(name: name, dob: dob, email: email, password: password)
-        }
     }
 }
 
 extension RegistrationViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == pickerField {
-            nameField.becomeFirstResponder()
-        }
-        else if textField == nameField {
+        if textField == nameField {
             dobField.becomeFirstResponder()
         }
         else if textField == dobField {
@@ -237,31 +188,5 @@ extension RegistrationViewController: UITextFieldDelegate {
             didTapRegister()
         }
         return true
-    }
-}
-
-extension RegistrationViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return choices.count
-    }
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return choices[row]
-    }
-}
-
-extension RegistrationViewController: ToolbarPickerViewDelegate {
-
-    func didTapDone() {
-        let row = self.chooseHostOrUserPicker.selectedRow(inComponent: 0)
-        self.chooseHostOrUserPicker.selectRow(row, inComponent: 0, animated: false)
-        self.pickerField.text = self.choices[row]
-        self.pickerField.resignFirstResponder()
-    }
-    func didTapCancel() {
-        self.pickerField.text = nil
-        self.pickerField.resignFirstResponder()
     }
 }

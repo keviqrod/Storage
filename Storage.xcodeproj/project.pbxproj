@@ -9,7 +9,10 @@
 /* Begin PBXBuildFile section */
 		0A03488A26CEA424004358D8 /* StorageManager .swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A03488926CEA424004358D8 /* StorageManager .swift */; };
 		0A54BE0826CE29730034556B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A54BE0726CE29730034556B /* GoogleService-Info.plist */; };
+		2F61ACD726D5900B00558CDF /* ChooseAccountTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F61ACD626D5900B00558CDF /* ChooseAccountTypeViewController.swift */; };
 		2F77C49F26D00980002517FA /* ToolbarPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F77C49E26D00980002517FA /* ToolbarPickerViewDelegate.swift */; };
+		2FA3A80C26DA89D7001AAE62 /* AnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3A80B26DA89D7001AAE62 /* AnswerCell.swift */; };
+		2FA3A80E26DA8A10001AAE62 /* QuestionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3A80D26DA8A10001AAE62 /* QuestionHeader.swift */; };
 		2FD49AB126D46ECD004E692E /* UserQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD49AB026D46ECD004E692E /* UserQuestionsViewController.swift */; };
 		2FD49AB326D470DC004E692E /* HostQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD49AB226D470DC004E692E /* HostQuestionsViewController.swift */; };
 		3F714CD726B9B2C90006A475 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F714CD626B9B2C90006A475 /* AppDelegate.swift */; };
@@ -19,7 +22,7 @@
 		3F714CE026B9B2CA0006A475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F714CDF26B9B2CA0006A475 /* Assets.xcassets */; };
 		3F714CE326B9B2CA0006A475 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F714CE126B9B2CA0006A475 /* LaunchScreen.storyboard */; };
 		3F714CF526B9B7680006A475 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F714CF426B9B7680006A475 /* LoginViewController.swift */; };
-		3F714CF826B9B7830006A475 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F714CF726B9B7830006A475 /* RegistrationViewController.swift */; };
+		3F714CF826B9B7830006A475 /* BasicRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F714CF726B9B7830006A475 /* BasicRegistrationViewController.swift */; };
 		3F714CFB26B9BA710006A475 /* MessagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F714CFA26B9BA710006A475 /* MessagingViewController.swift */; };
 		3F714CFE26BB8BEE0006A475 /* Databasemanager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F714CFD26BB8BEE0006A475 /* Databasemanager.swift */; };
 		3F714D0126BB914B0006A475 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F714D0026BB914B0006A475 /* Extensions.swift */; };
@@ -30,7 +33,10 @@
 /* Begin PBXFileReference section */
 		0A03488926CEA424004358D8 /* StorageManager .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StorageManager .swift"; sourceTree = "<group>"; };
 		0A54BE0726CE29730034556B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2F61ACD626D5900B00558CDF /* ChooseAccountTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAccountTypeViewController.swift; sourceTree = "<group>"; };
 		2F77C49E26D00980002517FA /* ToolbarPickerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarPickerViewDelegate.swift; sourceTree = "<group>"; };
+		2FA3A80B26DA89D7001AAE62 /* AnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnswerCell.swift; path = Storage/Controllers/AnswerCell.swift; sourceTree = SOURCE_ROOT; };
+		2FA3A80D26DA8A10001AAE62 /* QuestionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuestionHeader.swift; path = Storage/Controllers/QuestionHeader.swift; sourceTree = SOURCE_ROOT; };
 		2FD49AB026D46ECD004E692E /* UserQuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserQuestionsViewController.swift; sourceTree = "<group>"; };
 		2FD49AB226D470DC004E692E /* HostQuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostQuestionsViewController.swift; sourceTree = "<group>"; };
 		3F714CD326B9B2C90006A475 /* Storage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Storage.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,7 +48,7 @@
 		3F714CE226B9B2CA0006A475 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F714CE426B9B2CA0006A475 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F714CF426B9B7680006A475 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		3F714CF726B9B7830006A475 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		3F714CF726B9B7830006A475 /* BasicRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicRegistrationViewController.swift; sourceTree = "<group>"; };
 		3F714CFA26B9BA710006A475 /* MessagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingViewController.swift; sourceTree = "<group>"; };
 		3F714CFD26BB8BEE0006A475 /* Databasemanager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Databasemanager.swift; sourceTree = "<group>"; };
 		3F714D0026BB914B0006A475 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -128,6 +134,8 @@
 		3F714CEE26B9B3100006A475 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2FA3A80B26DA89D7001AAE62 /* AnswerCell.swift */,
+				2FA3A80D26DA8A10001AAE62 /* QuestionHeader.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -146,8 +154,9 @@
 			children = (
 				3F714CDA26B9B2C90006A475 /* HomeViewController.swift */,
 				3F714CF426B9B7680006A475 /* LoginViewController.swift */,
-				3F714CF726B9B7830006A475 /* RegistrationViewController.swift */,
 				3F714CFA26B9BA710006A475 /* MessagingViewController.swift */,
+				3F714CF726B9B7830006A475 /* BasicRegistrationViewController.swift */,
+				2F61ACD626D5900B00558CDF /* ChooseAccountTypeViewController.swift */,
 				2FD49AB026D46ECD004E692E /* UserQuestionsViewController.swift */,
 				2FD49AB226D470DC004E692E /* HostQuestionsViewController.swift */,
 			);
@@ -295,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FA3A80E26DA8A10001AAE62 /* QuestionHeader.swift in Sources */,
 				3F714CF526B9B7680006A475 /* LoginViewController.swift in Sources */,
 				3F714CDB26B9B2C90006A475 /* HomeViewController.swift in Sources */,
 				3F714CD726B9B2C90006A475 /* AppDelegate.swift in Sources */,
@@ -304,10 +314,12 @@
 				3F714CFE26BB8BEE0006A475 /* Databasemanager.swift in Sources */,
 				2FD49AB126D46ECD004E692E /* UserQuestionsViewController.swift in Sources */,
 				3F714CD926B9B2C90006A475 /* SceneDelegate.swift in Sources */,
+				2F61ACD726D5900B00558CDF /* ChooseAccountTypeViewController.swift in Sources */,
 				2F77C49F26D00980002517FA /* ToolbarPickerViewDelegate.swift in Sources */,
-				3F714CF826B9B7830006A475 /* RegistrationViewController.swift in Sources */,
+				3F714CF826B9B7830006A475 /* BasicRegistrationViewController.swift in Sources */,
 				2FD49AB326D470DC004E692E /* HostQuestionsViewController.swift in Sources */,
 				3F714CFB26B9BA710006A475 /* MessagingViewController.swift in Sources */,
+				2FA3A80C26DA89D7001AAE62 /* AnswerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,25 @@ class HostQuestionsViewController: UIViewController, UITableViewDataSource, UITa
 
     let tableview = UITableView()
     
+    var currentImage: UIImage!
+    
+    // somehow get system to save this photo for use later + also display it while signing up
+//    func imagePickerController(_ picker: UIImage, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+//
+//        guard let image = info[.editedImage] as? UIImage else { return }
+//
+//        dismiss(animated: true)
+//
+//        currentImage = image
+//    }
+//
+//    @objc func importPicture() {
+//        let picker = UIImagePickerController()
+//        picker.allowsEditing = true
+//        picker.delegate = self
+//        present(picker, animated: true)
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableview)

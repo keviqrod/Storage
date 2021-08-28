@@ -7,6 +7,10 @@
 
 import UIKit
 
+struct Constants {
+    static let cornerRadius: CGFloat = 8.0
+}
+
 extension UIView {
     public var width: CGFloat {
         return frame.size.width
