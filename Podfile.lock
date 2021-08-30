@@ -345,26 +345,26 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.7):
     - BoringSSL-GRPC/Interface (= 0.0.7)
   - BoringSSL-GRPC/Interface (0.0.7)
-  - Firebase/Analytics (8.6.0):
+  - Firebase/Analytics (8.6.1):
     - Firebase/Core
-  - Firebase/Auth (8.6.0):
+  - Firebase/Auth (8.6.1):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 8.6.0)
-  - Firebase/Core (8.6.0):
+  - Firebase/Core (8.6.1):
     - Firebase/CoreOnly
     - FirebaseAnalytics (~> 8.6.0)
-  - Firebase/CoreOnly (8.6.0):
-    - FirebaseCore (= 8.6.0)
-  - Firebase/Crashlytics (8.6.0):
+  - Firebase/CoreOnly (8.6.1):
+    - FirebaseCore (= 8.6.1)
+  - Firebase/Crashlytics (8.6.1):
     - Firebase/CoreOnly
     - FirebaseCrashlytics (~> 8.6.0)
-  - Firebase/Database (8.6.0):
+  - Firebase/Database (8.6.1):
     - Firebase/CoreOnly
     - FirebaseDatabase (~> 8.6.0)
-  - Firebase/Firestore (8.6.0):
+  - Firebase/Firestore (8.6.1):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 8.6.0)
-  - Firebase/Storage (8.6.0):
+  - Firebase/Storage (8.6.1):
     - Firebase/CoreOnly
     - FirebaseStorage (~> 8.6.0)
   - FirebaseAnalytics (8.6.0):
@@ -390,7 +390,7 @@ PODS:
     - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
     - GoogleUtilities/Environment (~> 7.4)
     - GTMSessionFetcher/Core (~> 1.5)
-  - FirebaseCore (8.6.0):
+  - FirebaseCore (8.6.1):
     - FirebaseCoreDiagnostics (~> 8.0)
     - GoogleUtilities/Environment (~> 7.4)
     - GoogleUtilities/Logger (~> 7.4)
@@ -538,10 +538,10 @@ SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
   Appirater: 44a4651f7912a17dc906b655f0c215d5bb768b84
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
-  Firebase: 21ac9f28b09a8bdfc005f34c984fca84e7e8786d
+  Firebase: e84d95f6d3a91f634abc384f0751c434cb3aecfa
   FirebaseAnalytics: 8f32ae54ad42754f503354782575c4ddfc1425c3
   FirebaseAuth: 223adeeb2262b417532e89bf06a960e3a0a1e9e4
-  FirebaseCore: 620b677f70f5470a8e59cb77f3ddc666f6f09785
+  FirebaseCore: a753c231801f04f5ccd10cc92119ad1b12a61165
   FirebaseCoreDiagnostics: 3721920bde3a9a6d5aa093c1d25e9d3e47f694af
   FirebaseCrashlytics: 58f8ecea7c799c61c50e8111d2e438424a8a1d2e
   FirebaseDatabase: 917fbeed577a68eb1ba0eb48c52a3aa10ac13f92

@@ -8,7 +8,6 @@
 import UIKit
 import SafariServices
 import Foundation
-import FirebaseAuth
 import Dispatch
 
 class LoginViewController: UIViewController {
@@ -170,8 +169,8 @@ class LoginViewController: UIViewController {
         }
     }
     @objc public func didTapCreateAccountButton() {
-        let vc = RegistrationViewController()
-        vc.title = "Create a new account"
+        let vc = ChooseAccountTypeViewController()
+        vc.title = "Create a New Account"
         vc.modalPresentationStyle = .fullScreen
         present(UINavigationController(rootViewController: vc), animated: true)
     }
