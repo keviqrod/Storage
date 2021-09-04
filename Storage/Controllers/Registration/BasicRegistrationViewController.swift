@@ -1,8 +1,8 @@
 //
-//  RegistrationViewController.swift
+//  BasicRegistrationViewController.swift
 //  Storage
 //
-//  Created by Student on 8/3/21.
+//  Created by Ivy Nguyen on 8/24/21.
 //
 
 import UIKit
@@ -10,10 +10,25 @@ import FirebaseFirestore
 
 class BasicRegistrationViewController: UIViewController {
 
+    private let chooseHostOrUserPicker: ToolbarPickerView = ToolbarPickerView()
+    private let choices = ["Host", "User"]
     let db = Firestore.firestore()
-    public var accountType: String = ""
-    // need to add feature here that rejects emails if they are not valid and/or affiliated with university
-    // also in general, could use something that ensures "return" take susers to each subsequent bar
+        
+    private let pickerField: UITextField = {
+        let field = UITextField()
+        field.placeholder = "Account Type"
+        field.returnKeyType = .next
+        field.leftViewMode = .always
+        field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
+        field.autocapitalizationType = .none
+        field.autocorrectionType = .no
+        field.layer.masksToBounds = true
+        field.layer.cornerRadius = Constants.cornerRadius
+        field.backgroundColor = .secondarySystemBackground
+        field.layer.borderWidth = 1.0
+        field.layer.borderColor = UIColor.secondaryLabel.cgColor
+        return field
+    }()
     private let nameField: UITextField = {
         let field = UITextField()
         field.placeholder = "First and Last Names"
@@ -108,8 +123,13 @@ class BasicRegistrationViewController: UIViewController {
         addSubviews()
         view.backgroundColor = .systemBackground
     }
-    
+
     private func setDelegates() {
+        chooseHostOrUserPicker.dataSource = self
+        chooseHostOrUserPicker.delegate = self
+        chooseHostOrUserPicker.toolbarDelegate = self
+        pickerField.inputView = chooseHostOrUserPicker
+        pickerField.inputAccessoryView = self.chooseHostOrUserPicker.toolbar
         nameField.delegate = self
         dobField.delegate = self
         emailField.delegate = self
@@ -117,6 +137,7 @@ class BasicRegistrationViewController: UIViewController {
         confirmField.delegate = self
     }
     private func addSubviews() {
+        view.addSubview(pickerField)
         view.addSubview(nameField)
         view.addSubview(dobField)
         view.addSubview(emailField)
@@ -129,6 +150,7 @@ class BasicRegistrationViewController: UIViewController {
         setLayoutFrames()
     }
     private func setLayoutFrames() {
+        pickerField.frame = CGRect(x: 20, y: view.safeAreaInsets.top + 10, width: view.width - 40, height: 52)
         nameField.frame = CGRect(x: 20, y: view.safeAreaInsets.top + 10, width: view.width - 40, height: 52)
         dobField.frame = CGRect(x: 20, y: nameField.bottom + 10, width: view.width - 40, height: 52)
         emailField.frame = CGRect(x: 20, y: dobField.bottom + 10, width: view.width - 40, height: 52)
@@ -136,15 +158,17 @@ class BasicRegistrationViewController: UIViewController {
         confirmField.frame = CGRect(x: 20, y: passwordField.bottom + 10, width: view.width - 40, height: 52)
         registerButton.frame = CGRect(x: 20, y: confirmField.bottom + 10, width: view.width - 40, height: 52)
     }
-    
+
     @objc private func didTapRegister() {
+        pickerField.resignFirstResponder()
         nameField.resignFirstResponder()
         dobField.resignFirstResponder()
         emailField.resignFirstResponder()
         passwordField.resignFirstResponder()
         confirmField.resignFirstResponder()
         
-        guard let name = nameField.text, !name.isEmpty,
+        guard let accountType = pickerField.text, !accountType.isEmpty,
+              let name = nameField.text, !name.isEmpty,
               let dob = dobField.text, !dob.isEmpty,
               let email = emailField.text, !email.isEmpty,
               let password = passwordField.text, !password.isEmpty, password.count >= 8,
@@ -152,24 +176,63 @@ class BasicRegistrationViewController: UIViewController {
                 return
         }
         if accountType == "User" {
-            writeUserData(name: name, dob: dob, email: email, password: password)
-            let vc = NewItemViewController()
+            createNewUser(name: name, dob: dob, email: email, password: password)
+            let vc = YesOrNoViewController()
+            vc.modalPresentationStyle = .fullScreen
+            present(UINavigationController(rootViewController: vc), animated: true)
         }
         else if accountType == "Host" {
-            writeHostData(name: name, dob: dob, email: email, password: password)
+            createNewHost(name: name, dob: dob, email: email, password: password)
             let vc = HostQuestionsViewController()
+            vc.modalPresentationStyle = .fullScreen
+            present(UINavigationController(rootViewController: vc), animated: true)
         }
-        vc.modalPresentationStyle = .fullScreen
-        present(UINavigationController(rootViewController: vc), animated: true)
     }
-    
-    func writeUserData(name: String, dob: String, email: String, password: String) {
-        let accountID = db.collection("users").doc("ID")
-        accountID.setData(["name": name, "dob": dob, "email": email, "password": password])
+
+    func createNewUser(name: String, dob: String, email: String, password: String) {
+        db.collection("users").addDocument(data: ["name": name, "dob": dob, "email": email, "password": password]) {
+            err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                }
+        }
     }
-    func writeHostData(name: String, dob: String, email: String, password: String) {
-        let accountID = db.collection("hosts").doc("ID")
-        accountID.setData(["name": name, "dob": dob, "email": email, "password": password])
+    func createNewHost(name: String, dob: String, email: String, password: String) {
+        db.collection("hosts").addDocument(data: ["name": name, "dob": dob, "email": email, "password": password]) {
+            err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                }
+        }
+    }
+}
+
+extension BasicRegistrationViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return choices.count
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return choices[row]
+    }
+}
+
+extension BasicRegistrationViewController: ToolbarPickerViewDelegate {
+    func didTapDone() {
+        let row = self.chooseHostOrUserPicker.selectedRow(inComponent: 0)
+        self.chooseHostOrUserPicker.selectRow(row, inComponent: 0, animated: false)
+        self.pickerField.text = self.choices[row]
+        self.pickerField.resignFirstResponder()
+    }
+    func didTapCancel() {
+        self.pickerField.text = nil
+        self.pickerField.resignFirstResponder()
     }
 }
 
